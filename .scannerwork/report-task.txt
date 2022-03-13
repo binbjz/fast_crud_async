@@ -1,0 +1,6 @@
+projectKey=fapi_crud_async
+serverUrl=http://sonar.naxions.com
+serverVersion=8.9.3.48735
+dashboardUrl=http://sonar.naxions.com/dashboard?id=fapi_crud_async
+ceTaskId=AX8g2DzOp01sZytUV-zp
+ceTaskUrl=http://sonar.naxions.com/api/ce/task?id=AX8g2DzOp01sZytUV-zp
