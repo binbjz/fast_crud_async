@@ -1,7 +1,7 @@
 # pull official base image
-FROM python:3.10.2-alpine
+FROM python:3.11.0-alpine
 
-# set work directory
+# set gl_pc directory
 WORKDIR /usr/src/app
 
 # set environment variables
