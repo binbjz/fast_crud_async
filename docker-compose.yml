@@ -12,7 +12,7 @@ services:
     environment:
       - DATABASE_URL=postgresql://fapi_async_bin:fapi_async_bin@db/fapi_async_bin_dev
   db:
-    image: postgres:14.2-alpine
+    image: postgres:15.1-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     expose:
