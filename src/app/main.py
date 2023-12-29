@@ -1,21 +1,25 @@
 from fastapi import FastAPI
-from app.api import notes, route_check
+from contextlib import asynccontextmanager
+from app.api import notes, status_routes
 from app.db import database, engine, metadata
 
 metadata.create_all(engine)
 
-app = FastAPI()
 
-
-@app.on_event("startup")
-async def startup():
+@asynccontextmanager
+async def app_lifespan(app_instance: FastAPI):
     await database.connect()
-
-
-@app.on_event("shutdown")
-async def shutdown():
+    yield
     await database.disconnect()
 
 
-app.include_router(route_check.router)
+app = FastAPI(lifespan=app_lifespan)
+
+app.include_router(status_routes.router)
 app.include_router(notes.router, prefix="/notes", tags=["notes"])
+
+
+@app.get("/predict")
+async def predict(x: float):
+    return {"result": "predict result"}
+

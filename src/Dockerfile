@@ -1,7 +1,7 @@
 # pull official base image
 FROM python:3.11.7-alpine
 
-# set gl_pc directory
+# set work directory
 WORKDIR /usr/src/app
 
 # set environment variables
@@ -14,7 +14,7 @@ COPY ./requirements.txt /usr/src/app/requirements.txt
 # install dependencies
 RUN set -eux \
     && apk add --no-cache --virtual .build-deps build-base \
-        libressl-dev libffi-dev gcc musl-dev python3-dev \
+        libffi-dev gcc musl-dev python3-dev \
         postgresql-dev bash \
     && pip install --upgrade pip setuptools wheel \
     && pip install -r /usr/src/app/requirements.txt \
@@ -22,3 +22,4 @@ RUN set -eux \
 
 # copy project
 COPY . /usr/src/app/
+
