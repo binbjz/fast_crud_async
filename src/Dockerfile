@@ -1,5 +1,5 @@
 # pull official base image
-FROM python:3.11.0-alpine
+FROM python:3.11.7-alpine
 
 # set gl_pc directory
 WORKDIR /usr/src/app
