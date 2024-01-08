@@ -13,7 +13,7 @@ services:
       - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db/${POSTGRES_DB}
 
   db:
-    image: postgres:15.1-alpine
+    image: postgres:15.5-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     expose:
